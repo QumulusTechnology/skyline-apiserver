@@ -60,7 +60,7 @@ list_rules = (
     ),
     base.Rule(
         name="load-balancer:member_and_owner",
-        check_str=("role:load-balancer_member and rule:project-member"),
+        check_str=("rule:project-member"),
         description="No description",
     ),
     base.Rule(
