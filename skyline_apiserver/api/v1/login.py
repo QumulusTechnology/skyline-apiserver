@@ -207,7 +207,8 @@ async def login(
                     project_domain_name="default",
                 )
         new_session = Session(auth=new_auth)
-        new_client = KeystoneClient(session=new_session,project_name="service",)
+        new_client = KeystoneClient(session=new_session)
+        # new_client = KeystoneClient(session=new_session,project_name="service",)
 
         new_project_scope = new_client.auth.projects()
         new_token = new_session.get_token()
