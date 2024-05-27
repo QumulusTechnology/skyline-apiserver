@@ -15,7 +15,9 @@
 from __future__ import annotations
 
 from pathlib import PurePath
+import time
 from typing import Any, Dict, List, Optional, Tuple, Union
+import uuid
 
 from fastapi import APIRouter, Depends, Form, Header, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse
@@ -23,7 +25,7 @@ from keystoneauth1.identity.v3 import Password, Token
 from keystoneauth1.session import Session
 from keystoneclient.client import Client as KeystoneClient
 
-from skyline_apiserver import schemas
+from skyline_apiserver import schemas, version
 from skyline_apiserver.api import deps
 from skyline_apiserver.client import utils
 from skyline_apiserver.client.openstack.keystone import get_token_data, get_user, revoke_token
@@ -43,13 +45,17 @@ from skyline_apiserver.db import api as db_api
 from skyline_apiserver.log import LOG
 from skyline_apiserver.types import constants
 
+from keystoneauth1.session import Session
+from keystoneclient.v3 import client
+from skyline_apiserver import schemas
+
 router = APIRouter()
 
 
 async def _get_default_project_id(
     session: Session, region: str, user_id: Optional[str] = None
 ) -> Union[str, None]:
-    system_session = get_system_session()
+    system_session =session
     if not user_id:
         token = session.get_token()
         token_data = await get_token_data(token, region, system_session)
@@ -68,25 +74,37 @@ async def _get_projects_and_unscope_token(
     token: Optional[str] = None,
     project_enabled: bool = False,
 ) -> Tuple[List[Any], str, Union[str, None]]:
-    auth_url = await utils.get_endpoint(
-        region=region,
-        service="identity",
-        session=get_system_session(),
-    )
+    try:
+        print("hi")
+    #        auth = session.auth
+    # if auth._needs_reauthenticate():
+    #     auth.auth_ref = await run_in_threadpool(auth.get_auth_ref, session)
 
+
+        # auth_url = await utils.get_endpoint(
+        #     region=region,
+        #     service="identity",
+        #     session=sess,
+        # )
+
+    except Exception as e:
+        print(e)
+
+
+    unscope_auth = None
     if token:
         unscope_auth = Token(
-            auth_url=auth_url,
+            auth_url="https://cloud10.cloudportal.app:5000/v3/",
             token=token,
             reauthenticate=False,
         )
     else:
         unscope_auth = Password(
-            auth_url=auth_url,
+            auth_url="https://cloud10.cloudportal.app:5000/v3/",
             user_domain_name=domain,
             username=username,
             password=password,
-            reauthenticate=False,
+            reauthenticate=False
         )
 
     session = Session(
@@ -95,8 +113,11 @@ async def _get_projects_and_unscope_token(
 
     unscope_client = KeystoneClient(
         session=session,
-        endpoint=auth_url,
+        endpoint="https://cloud10.cloudportal.app:5000/v3/",
         interface=CONF.openstack.interface_type,
+        project_name="service",
+        project_domain_id="Default",
+        user_domain_id="Default"
     )
 
     project_scope = unscope_client.auth.projects()
@@ -107,20 +128,25 @@ async def _get_projects_and_unscope_token(
 
     if not project_scope:
         raise Exception("You are not authorized for any projects or domains.")
+    print(session.auth._needs_reauthenticate())
+    service_object = next((obj for obj in project_scope if obj.name == 'service'), None)
 
-    default_project_id = await _get_default_project_id(session, region)
+    # default_project_id = await _get_default_project_id(session, region)
 
-    return project_scope, unscope_token, default_project_id
+    return project_scope, unscope_token, service_object.id, session, unscope_client
 
 
-async def _patch_profile(profile: schemas.Profile, global_request_id: str) -> schemas.Profile:
+async def _patch_profile(profile: schemas.Profile, global_request_id: str, session: Session) -> schemas.Profile:
     try:
-        profile.endpoints = await get_endpoints(region=profile.region)
+        print("hiii2")
+
+        profile.endpoints = await get_endpoints(region=profile.region, session=session)
 
         projects = await get_projects(
             global_request_id=global_request_id,
             region=profile.region,
             user=profile.user.id,
+            session=session
         )
 
         if not projects:
@@ -129,7 +155,7 @@ async def _patch_profile(profile: schemas.Profile, global_request_id: str) -> sc
             )
         else:
             default_project_id = await _get_default_project_id(
-                get_system_session(), profile.region, user_id=profile.user.id
+                session, profile.region, user_id=profile.user.id
             )
 
         profile.projects = {
@@ -174,9 +200,10 @@ async def login(
     ),
 ) -> schemas.Profile:
     try:
-        project_scope, unscope_token, default_project_id = await _get_projects_and_unscope_token(
+        print(credential)
+        project_scope, unscope_token, default_project_id, session, unscope_client = await _get_projects_and_unscope_token(
             region=credential.region,
-            domain=credential.domain,
+            domain="Default",
             username=credential.username,
             password=credential.password,
             project_enabled=True,
@@ -190,12 +217,69 @@ async def login(
             project_id=default_project_id or project_scope[0].id,
         )
 
-        profile = await generate_profile(
+
+
+        new_auth = Password(
+                    auth_url="https://cloud10.cloudportal.app:5000/v3/",
+                    username=credential.username, 
+                    password=credential.password,
+                    user_domain_name="default",
+                    project_name="admin",
+                    project_domain_name="default",
+                )
+        new_session = Session(auth=new_auth)
+        new_client = KeystoneClient(session=new_session,project_name="service",)
+
+        # new_auth = Token(
+            #   auth_url="https://cloud10.cloudportal.app:5000/v3/",
+            #   token=project_scope_token,
+            #   reauthenticate=True,
+            #   user_domain_name="default",
+            #   project_name="admin",
+            #   project_domain_name="default",        
+        # )
+        # new_session = Session(
+        #     auth=new_auth, verify=CONF.default.cafile, timeout=constants.DEFAULT_TIMEOUT
+        # )
+        # new_client = KeystoneClient(
+        #     session=new_session,
+        #     endpoint="https://cloud10.cloudportal.app:5000/v3/",
+        #     interface=CONF.openstack.interface_type,
+        #     project_name="service",
+        #     project_domain_id="Default",
+        #     user_domain_id="Default"
+        # )
+
+
+
+        new_project_scope = new_client.auth.projects()
+        new_token = new_session.get_token()
+        new_project_scope = [scope for scope in new_project_scope if scope.enabled]
+        if not new_project_scope:
+            raise Exception("You are not authorized for any projects or domains.")
+        
+        new_token_data = new_client.tokens.get_token_data(token=new_token)
+
+        # token_data = unscope_client.tokens.get_token_data(token=project_scope_token)
+        profile = schemas.Profile(
             keystone_token=project_scope_token,
             region=credential.region,
+            project=new_token_data["token"]["project"],
+            user=new_token_data["token"]["user"],
+            roles=new_token_data["token"]["roles"],
+            keystone_token_exp=new_token_data["token"]["expires_at"],
+            base_domains=CONF.openstack.base_domains,
+            exp=int(time.time()) + CONF.default.access_token_expire,
+            uuid=uuid.uuid4().hex,
+            version=version.version_string(),
         )
-
-        profile = await _patch_profile(profile, x_openstack_request_id)
+        # profile = await generate_profile(
+        #     keystone_token=project_scope_token,
+        #     region=credential.region,
+        #     session=session,
+        #     unscope_client=unscope_client,
+        # )
+        profile = await _patch_profile(profile, x_openstack_request_id, new_session)
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -324,7 +408,11 @@ async def get_profile(
         regex=constants.INBOUND_HEADER_REGEX,
     ),
 ) -> schemas.Profile:
-    return await _patch_profile(profile, x_openstack_request_id)
+    print("hiii")
+    print(profile)
+    session = get_system_session()
+
+    return await _patch_profile(profile, x_openstack_request_id,session)
 
 
 @router.post(

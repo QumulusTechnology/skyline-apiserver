@@ -35,7 +35,7 @@ system_project_domain = Opt(
     name="system_project_domain",
     description="Skyline system project's domain",
     schema=StrictStr,
-    default="Default",
+    default="default",
 )
 
 system_project = Opt(
@@ -49,7 +49,7 @@ system_user_domain = Opt(
     name="system_user_domain",
     description="Skyline system user's domain",
     schema=StrictStr,
-    default="Default",
+    default="default",
 )
 
 system_user_name = Opt(

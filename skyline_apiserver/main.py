@@ -30,6 +30,7 @@ PROJECT_NAME = "Skyline API"
 
 
 async def on_startup() -> None:
+    
     configure("skyline")
     log_setup(
         Path(CONF.default.log_dir).joinpath(CONF.default.log_file),
@@ -60,5 +61,12 @@ app = FastAPI(
     on_startup=[on_startup],
     on_shutdown=[on_shutdown],
 )
+
+
+# @app.middleware("http")
+# async def add_process_time_header(request, call_next):
+#     print(request)
+#     res = await call_next(request)
+#     return res
 
 app.include_router(api_router, prefix=constants.API_PREFIX)

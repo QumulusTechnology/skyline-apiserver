@@ -1,0 +1,40 @@
+
+default:
+  access_token_expire: 3600
+  access_token_renew: 1800
+  cors_allow_origins: []
+  database_url: mysql://skyline:kgMRIOiKTyuji0AG7FF6nUMcmZ39KuhgR71SHFiJ@node01.cloud10.cloudportal.app:3306/skyline
+  debug: false
+  log_dir: /Users/henryqum/Documents/GitHub/skyline-apiserver/logs
+  prometheus_basic_auth_password: 0Yu8nHVZuDCd53XCKwOc1jcCerjJCMIUmWhR0NEA
+  prometheus_basic_auth_user: skyline
+  prometheus_enable_basic_auth: true
+  prometheus_endpoint: https://node01.cloud10.cloudportal.app:9091
+  secret_key: EMR0GvLbhlL1UZmT9luf1tgnJFkiD4Nd7WFL1jOk
+  session_name: session
+openstack:
+  base_domains:
+  - heat_user_domain
+  - magnum
+  default_region: RegionOne
+  extension_mapping:
+    vpnaas: neutron_vpn
+  keystone_url: https://node01.cloud10.cloudportal.app:5000/v3/
+  nginx_prefix: /api/openstack
+  reclaim_instance_interval: 604800
+  service_mapping:
+    compute: nova
+    container-infra: magnum
+    dns: designate
+    identity: keystone
+    image: glance
+    key-manager: barbican
+    load-balancer: octavia
+    network: neutron
+    orchestration: heat
+    placement: placement
+    volumev3: cinder
+  sso_enabled: false
+  system_admin_roles:
+  - admin
+  system_project: service

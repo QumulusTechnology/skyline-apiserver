@@ -1,0 +1,1607 @@
+2024-05-23 10:29:42.049 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 10:29:42.050 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 10:40:10.797 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 10:40:10.900 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 10:40:10.901 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 10:40:10.902 | INFO     | uvicorn.server:serve:85 - Finished server process [30160]
+2024-05-23 10:48:00.622 | ERROR    | uvicorn.lifespan.on:send:119 - Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 527, in _connect
+    self._reader, self._writer = await \
+                                 ^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 88, in _open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1122, in create_connection
+    raise exceptions[0]
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1104, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1007, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('49.12.173.51', 3306)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 517, in lifespan
+    await self.startup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 494, in startup
+    await handler()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/main.py", line 39, in on_startup
+    await db_setup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/db/base.py", line 43, in setup
+    await DATABASE.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/core.py", line 112, in connect
+    await self._backend.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/backends/mysql.py", line 69, in connect
+    self._pool = await aiomysql.create_pool(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 29, in _create_pool
+    await pool._fill_free_pool(False)
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 182, in _fill_free_pool
+    conn = await connect(echo=self._echo, loop=self._loop,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 75, in _connect
+    await conn._connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 558, in _connect
+    raise OperationalError(2003,
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'node01.cloud10.cloudportal.app'")
+
+2024-05-23 10:48:00.623 | ERROR    | uvicorn.lifespan.on:startup:56 - Application startup failed. Exiting.
+2024-05-23 10:48:41.517 | ERROR    | uvicorn.lifespan.on:send:119 - Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 528, in _connect
+    self._reader, self._writer = await \
+                                 ^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 88, in _open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1122, in create_connection
+    raise exceptions[0]
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1104, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1007, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('49.12.173.51', 3306)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 517, in lifespan
+    await self.startup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 494, in startup
+    await handler()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/main.py", line 39, in on_startup
+    await db_setup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/db/base.py", line 43, in setup
+    await DATABASE.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/core.py", line 112, in connect
+    await self._backend.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/backends/mysql.py", line 69, in connect
+    self._pool = await aiomysql.create_pool(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 29, in _create_pool
+    await pool._fill_free_pool(False)
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 182, in _fill_free_pool
+    conn = await connect(echo=self._echo, loop=self._loop,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 75, in _connect
+    await conn._connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 559, in _connect
+    raise OperationalError(2003,
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'node01.cloud10.cloudportal.app'")
+
+2024-05-23 10:48:41.517 | ERROR    | uvicorn.lifespan.on:startup:56 - Application startup failed. Exiting.
+2024-05-23 10:49:53.068 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 10:49:53.068 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 10:56:15.371 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 10:56:15.473 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 10:56:15.474 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 10:56:15.475 | INFO     | uvicorn.server:serve:85 - Finished server process [31588]
+2024-05-23 11:02:18.540 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:02:18.541 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 11:02:54.789 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 11:03:14.894 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:03:17.352 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 11:04:44.818 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:04:46.049 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 11:27:24.680 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 11:27:24.782 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 11:27:24.783 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 11:27:24.784 | INFO     | uvicorn.server:serve:85 - Finished server process [32460]
+2024-05-23 11:29:18.294 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:29:20.147 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 11:30:03.881 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 11:30:03.983 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 11:30:03.984 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 11:30:03.984 | INFO     | uvicorn.server:serve:85 - Finished server process [33577]
+2024-05-23 11:41:54.810 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:41:54.811 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 11:51:03.609 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 11:51:08.563 | INFO     | uvicorn.server:serve:85 - Finished server process [34078]
+2024-05-23 11:51:08.564 | INFO     | uvicorn.lifespan.on:main:92 - ASGI 'lifespan' protocol appears unsupported.
+2024-05-23 11:52:16.793 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 11:52:18.295 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:26:23.327 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:26:23.429 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:26:23.430 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:26:23.430 | INFO     | uvicorn.server:serve:85 - Finished server process [34541]
+2024-05-23 12:26:42.703 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:26:45.862 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:29:10.676 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:29:13.955 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:29:13.956 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:29:13.957 | INFO     | uvicorn.server:serve:85 - Finished server process [36098]
+2024-05-23 12:29:17.740 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:29:17.741 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:38:51.446 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:38:51.548 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:38:51.549 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:38:51.549 | INFO     | uvicorn.server:serve:85 - Finished server process [36229]
+2024-05-23 12:38:55.640 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:38:55.641 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:44:48.747 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:44:48.850 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:44:48.853 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:44:48.854 | INFO     | uvicorn.server:serve:85 - Finished server process [36527]
+2024-05-23 12:44:58.343 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:44:58.343 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:47:38.259 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:47:38.361 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:47:38.361 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:47:38.362 | INFO     | uvicorn.server:serve:85 - Finished server process [36735]
+2024-05-23 12:47:42.108 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:47:42.109 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:50:48.424 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:50:48.526 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:50:48.527 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:50:48.528 | INFO     | uvicorn.server:serve:85 - Finished server process [36882]
+2024-05-23 12:50:52.333 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:50:52.333 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:53:30.930 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:53:35.206 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:53:35.207 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:53:35.207 | INFO     | uvicorn.server:serve:85 - Finished server process [37004]
+2024-05-23 12:53:38.930 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:53:38.931 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 12:56:29.337 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 12:56:34.667 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 12:56:34.667 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 12:56:34.668 | INFO     | uvicorn.server:serve:85 - Finished server process [37132]
+2024-05-23 12:56:38.642 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 12:56:38.643 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:00:06.770 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:00:06.873 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:00:06.876 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:00:06.877 | INFO     | uvicorn.server:serve:85 - Finished server process [37229]
+2024-05-23 13:00:10.796 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:00:10.797 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:06:51.429 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:06:51.531 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:06:51.532 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:06:51.532 | INFO     | uvicorn.server:serve:85 - Finished server process [37425]
+2024-05-23 13:06:55.574 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:06:55.575 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:10:52.471 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:10:52.574 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:10:52.575 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:10:52.575 | INFO     | uvicorn.server:serve:85 - Finished server process [37698]
+2024-05-23 13:10:56.655 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:10:56.656 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:15:52.870 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:15:52.972 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:15:52.973 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:15:52.973 | INFO     | uvicorn.server:serve:85 - Finished server process [37854]
+2024-05-23 13:15:56.976 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:15:56.977 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:20:42.873 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:20:42.975 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:20:42.976 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:20:42.977 | INFO     | uvicorn.server:serve:85 - Finished server process [38120]
+2024-05-23 13:20:46.920 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:20:46.921 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:23:47.510 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:23:52.896 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:23:52.898 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:23:52.898 | INFO     | uvicorn.server:serve:85 - Finished server process [38360]
+2024-05-23 13:23:56.967 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:23:56.968 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:29:56.720 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:29:56.822 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:29:56.823 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:29:56.824 | INFO     | uvicorn.server:serve:85 - Finished server process [38518]
+2024-05-23 13:30:00.902 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:30:00.903 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:30:39.062 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:30:39.166 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:30:39.167 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:30:39.168 | INFO     | uvicorn.server:serve:85 - Finished server process [38785]
+2024-05-23 13:30:43.052 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:30:43.053 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 13:34:33.441 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 13:34:33.543 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 13:34:33.544 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 13:34:33.544 | INFO     | uvicorn.server:serve:85 - Finished server process [38856]
+2024-05-23 13:34:37.640 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 13:34:37.641 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:03:35.443 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:03:35.545 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:03:35.546 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:03:35.546 | INFO     | uvicorn.server:serve:85 - Finished server process [39014]
+2024-05-23 14:03:39.599 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:03:39.601 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:31:49.808 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:31:49.910 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:31:49.911 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:31:49.912 | INFO     | uvicorn.server:serve:85 - Finished server process [40027]
+2024-05-23 14:31:54.641 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:31:54.642 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:33:16.922 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:33:17.024 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:33:17.025 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:33:17.025 | INFO     | uvicorn.server:serve:85 - Finished server process [40977]
+2024-05-23 14:33:24.197 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:33:24.198 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:34:05.611 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:34:05.713 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:34:05.714 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:34:05.714 | INFO     | uvicorn.server:serve:85 - Finished server process [41076]
+2024-05-23 14:34:14.017 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:34:14.018 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:37:44.100 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:37:44.202 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:37:44.203 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:37:44.203 | INFO     | uvicorn.server:serve:85 - Finished server process [41102]
+2024-05-23 14:43:05.074 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:43:05.074 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:44:15.591 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:44:15.693 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:44:15.695 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:44:15.695 | INFO     | uvicorn.server:serve:85 - Finished server process [41467]
+2024-05-23 14:44:21.636 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:44:21.637 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:52:04.241 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:52:04.458 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:52:04.459 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:52:04.460 | INFO     | uvicorn.server:serve:85 - Finished server process [41544]
+2024-05-23 14:52:10.058 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:52:10.058 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:56:55.301 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:56:55.403 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:56:55.404 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:56:55.404 | INFO     | uvicorn.server:serve:85 - Finished server process [41853]
+2024-05-23 14:57:03.618 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 14:57:03.619 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 14:59:55.983 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 14:59:56.085 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 14:59:56.085 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 14:59:56.085 | INFO     | uvicorn.server:serve:85 - Finished server process [42101]
+2024-05-23 15:00:01.617 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:00:01.618 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:01:50.523 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:01:50.625 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:01:50.626 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:01:50.627 | INFO     | uvicorn.server:serve:85 - Finished server process [42239]
+2024-05-23 15:01:58.433 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:01:58.433 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:09:21.124 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:09:21.226 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:09:21.226 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:09:21.226 | INFO     | uvicorn.server:serve:85 - Finished server process [42353]
+2024-05-23 15:09:28.848 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:09:28.848 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:11:20.103 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:11:20.205 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:11:20.206 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:11:20.206 | INFO     | uvicorn.server:serve:85 - Finished server process [42601]
+2024-05-23 15:11:28.590 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:11:28.590 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:12:10.790 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:12:10.891 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:12:10.892 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:12:10.892 | INFO     | uvicorn.server:serve:85 - Finished server process [42689]
+2024-05-23 15:12:16.691 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:12:16.692 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:13:05.953 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:13:06.056 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:13:06.057 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:13:06.057 | INFO     | uvicorn.server:serve:85 - Finished server process [42722]
+2024-05-23 15:13:11.787 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:13:11.788 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:14:03.635 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:14:03.737 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:14:03.738 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:14:03.739 | INFO     | uvicorn.server:serve:85 - Finished server process [42800]
+2024-05-23 15:14:07.982 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:14:07.983 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:15:58.724 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:15:58.826 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:15:58.827 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:15:58.827 | INFO     | uvicorn.server:serve:85 - Finished server process [42860]
+2024-05-23 15:16:03.861 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:16:03.861 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:23:08.500 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:23:08.601 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:23:08.602 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:23:08.603 | INFO     | uvicorn.server:serve:85 - Finished server process [42946]
+2024-05-23 15:23:13.197 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:23:13.197 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:27:44.404 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:27:48.120 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:27:48.121 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:27:48.122 | INFO     | uvicorn.server:serve:85 - Finished server process [43230]
+2024-05-23 15:27:58.761 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:27:58.762 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:40:00.962 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:40:01.186 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:40:01.187 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:40:01.187 | INFO     | uvicorn.server:serve:85 - Finished server process [43411]
+2024-05-23 15:40:06.622 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:40:06.623 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:45:08.180 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:45:08.283 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:45:08.283 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:45:08.284 | INFO     | uvicorn.server:serve:85 - Finished server process [43816]
+2024-05-23 15:45:14.958 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:45:14.959 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:46:17.396 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:46:17.498 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:46:17.498 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:46:17.498 | INFO     | uvicorn.server:serve:85 - Finished server process [44027]
+2024-05-23 15:46:23.001 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:46:23.001 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:48:14.945 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:48:15.047 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:48:15.048 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:48:15.048 | INFO     | uvicorn.server:serve:85 - Finished server process [44104]
+2024-05-23 15:48:22.908 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:48:22.908 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:48:50.799 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:48:50.901 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:48:50.902 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:48:50.902 | INFO     | uvicorn.server:serve:85 - Finished server process [44193]
+2024-05-23 15:48:57.011 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:48:57.012 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:50:54.029 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:50:54.131 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:50:54.132 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:50:54.132 | INFO     | uvicorn.server:serve:85 - Finished server process [44232]
+2024-05-23 15:52:43.935 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:52:43.936 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 15:54:12.033 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 15:54:14.782 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 15:54:14.783 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 15:54:14.783 | INFO     | uvicorn.server:serve:85 - Finished server process [44467]
+2024-05-23 15:54:20.733 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 15:54:20.734 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:00:30.991 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:00:31.093 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:00:31.093 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:00:31.094 | INFO     | uvicorn.server:serve:85 - Finished server process [44578]
+2024-05-23 16:00:36.526 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:00:36.527 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:01:51.683 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:01:51.785 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:01:51.786 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:01:51.786 | INFO     | uvicorn.server:serve:85 - Finished server process [44803]
+2024-05-23 16:01:57.484 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:01:57.485 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:05:14.593 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:05:14.594 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:14:50.450 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:14:50.552 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:14:50.553 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:14:50.554 | INFO     | uvicorn.server:serve:85 - Finished server process [45037]
+2024-05-23 16:14:57.520 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:14:57.521 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:19:05.409 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:19:05.511 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:19:05.512 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:19:05.512 | INFO     | uvicorn.server:serve:85 - Finished server process [45332]
+2024-05-23 16:19:11.169 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:19:11.170 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:24:10.764 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:24:11.238 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:24:11.239 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:24:11.239 | INFO     | uvicorn.server:serve:85 - Finished server process [45503]
+2024-05-23 16:27:39.569 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:27:39.570 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:35:46.025 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:35:46.128 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:35:46.129 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:35:46.129 | INFO     | uvicorn.server:serve:85 - Finished server process [45856]
+2024-05-23 16:36:36.745 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:36:36.746 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:41:56.888 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:41:56.991 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:41:56.992 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:41:56.993 | INFO     | uvicorn.server:serve:85 - Finished server process [46141]
+2024-05-23 16:42:02.839 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:42:02.839 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:43:00.225 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:43:00.327 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:43:00.328 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:43:00.329 | INFO     | uvicorn.server:serve:85 - Finished server process [46325]
+2024-05-23 16:43:06.652 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:43:06.652 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:43:33.050 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:43:33.152 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:43:33.152 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:43:33.153 | INFO     | uvicorn.server:serve:85 - Finished server process [46394]
+2024-05-23 16:43:50.748 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:43:50.748 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:45:04.683 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:45:04.785 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:45:04.786 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:45:04.787 | INFO     | uvicorn.server:serve:85 - Finished server process [46446]
+2024-05-23 16:47:32.764 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:47:32.764 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:52:44.289 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:52:44.391 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:52:44.392 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:52:44.393 | INFO     | uvicorn.server:serve:85 - Finished server process [46505]
+2024-05-23 16:52:51.227 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:52:51.228 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:54:53.383 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:54:53.485 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:54:53.485 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:54:53.486 | INFO     | uvicorn.server:serve:85 - Finished server process [46768]
+2024-05-23 16:54:59.291 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:54:59.291 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:55:38.178 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:55:38.280 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:55:38.281 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:55:38.281 | INFO     | uvicorn.server:serve:85 - Finished server process [46858]
+2024-05-23 16:55:42.170 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:55:42.171 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 16:56:45.054 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 16:56:45.156 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 16:56:45.157 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 16:56:45.157 | INFO     | uvicorn.server:serve:85 - Finished server process [46930]
+2024-05-23 16:56:49.114 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 16:56:49.115 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:00:54.252 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:00:54.354 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:00:54.355 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:00:54.355 | INFO     | uvicorn.server:serve:85 - Finished server process [46973]
+2024-05-23 17:00:58.156 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:00:58.157 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:05:30.973 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:05:31.075 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:05:31.076 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:05:31.076 | INFO     | uvicorn.server:serve:85 - Finished server process [47124]
+2024-05-23 17:05:34.795 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:05:34.796 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:06:24.183 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:06:24.285 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:06:24.286 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:06:24.286 | INFO     | uvicorn.server:serve:85 - Finished server process [47314]
+2024-05-23 17:06:28.105 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:06:28.106 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:07:22.508 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:07:22.609 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:07:22.610 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:07:22.610 | INFO     | uvicorn.server:serve:85 - Finished server process [47359]
+2024-05-23 17:07:26.441 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:07:26.441 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:12:04.362 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:12:04.464 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:12:04.464 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:12:04.464 | INFO     | uvicorn.server:serve:85 - Finished server process [47415]
+2024-05-23 17:12:08.281 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:12:08.282 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:14:52.598 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:14:52.700 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:14:52.701 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:14:52.701 | INFO     | uvicorn.server:serve:85 - Finished server process [47573]
+2024-05-23 17:14:56.397 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:14:56.398 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 17:20:34.407 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 17:20:34.509 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 17:20:34.509 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 17:20:34.509 | INFO     | uvicorn.server:serve:85 - Finished server process [47676]
+2024-05-23 17:20:38.138 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 17:20:38.139 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-23 20:03:03.154 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-23 20:03:03.257 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-23 20:03:03.259 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-23 20:03:03.259 | INFO     | uvicorn.server:serve:85 - Finished server process [47880]
+2024-05-23 20:03:07.412 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-23 20:03:07.413 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 10:49:20.773 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 10:49:20.774 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 10:50:43.282 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 10:50:43.383 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 10:50:43.384 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 10:50:43.385 | INFO     | uvicorn.server:serve:85 - Finished server process [53319]
+2024-05-24 10:50:47.351 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 10:50:47.352 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 10:50:55.670 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 10:50:55.671 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 10:51:46.227 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 10:51:46.329 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 10:51:46.330 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 10:51:46.330 | INFO     | uvicorn.server:serve:85 - Finished server process [53435]
+2024-05-24 10:51:50.154 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 10:51:50.155 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 10:51:58.331 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 10:51:58.332 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:16:52.808 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:16:52.809 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:31:43.113 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:31:43.114 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:33:00.720 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:33:00.822 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:33:00.823 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:33:00.823 | INFO     | uvicorn.server:serve:85 - Finished server process [56510]
+2024-05-24 11:33:05.019 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:33:05.019 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:36:06.940 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:36:07.042 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:36:07.043 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:36:07.043 | INFO     | uvicorn.server:serve:85 - Finished server process [56614]
+2024-05-24 11:36:11.149 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:36:11.150 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:38:10.539 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:38:10.641 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:38:10.641 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:38:10.642 | INFO     | uvicorn.server:serve:85 - Finished server process [56747]
+2024-05-24 11:38:14.587 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:38:14.588 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:42:23.747 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:42:23.850 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:42:23.851 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:42:23.851 | INFO     | uvicorn.server:serve:85 - Finished server process [56833]
+2024-05-24 11:42:27.699 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:42:27.700 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:44:07.952 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:44:08.055 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:44:08.056 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:44:08.056 | INFO     | uvicorn.server:serve:85 - Finished server process [56980]
+2024-05-24 11:44:12.053 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:44:12.054 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:48:33.842 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:48:33.944 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:48:33.945 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:48:33.946 | INFO     | uvicorn.server:serve:85 - Finished server process [57062]
+2024-05-24 11:48:37.867 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:48:37.867 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:51:28.067 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:51:28.169 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:51:28.170 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:51:28.171 | INFO     | uvicorn.server:serve:85 - Finished server process [57228]
+2024-05-24 11:51:31.914 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:51:31.915 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:51:46.601 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:51:46.704 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:51:46.705 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:51:46.706 | INFO     | uvicorn.server:serve:85 - Finished server process [57319]
+2024-05-24 11:51:50.473 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:51:50.474 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 11:53:55.654 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 11:53:55.756 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 11:53:55.757 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 11:53:55.757 | INFO     | uvicorn.server:serve:85 - Finished server process [57332]
+2024-05-24 11:53:59.674 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 11:53:59.675 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:00:13.417 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:00:13.519 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:00:13.520 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:00:13.521 | INFO     | uvicorn.server:serve:85 - Finished server process [57457]
+2024-05-24 12:00:17.424 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:00:17.425 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:02:19.808 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:02:24.031 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:02:24.032 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:02:24.032 | INFO     | uvicorn.server:serve:85 - Finished server process [57686]
+2024-05-24 12:02:27.816 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:02:27.817 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:03:31.973 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:03:34.725 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:03:34.726 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:03:34.727 | INFO     | uvicorn.server:serve:85 - Finished server process [57836]
+2024-05-24 12:03:38.547 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:03:38.548 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:06:11.805 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:06:11.907 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:06:11.908 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:06:11.908 | INFO     | uvicorn.server:serve:85 - Finished server process [57901]
+2024-05-24 12:06:15.688 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:06:15.689 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:13:52.237 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:13:52.340 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:13:52.341 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:13:52.341 | INFO     | uvicorn.server:serve:85 - Finished server process [58061]
+2024-05-24 12:13:59.547 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:13:59.548 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:18:03.254 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:18:03.356 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:18:03.358 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:18:03.358 | INFO     | uvicorn.server:serve:85 - Finished server process [58373]
+2024-05-24 12:18:08.402 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:18:08.403 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:18:38.143 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x104c22020>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x104c220c0>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x112b03050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x1047d2030>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x112b03050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x112adec90>
+          └ <fastapi.applications.FastAPI object at 0x1047d2030>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x113198400>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x112adec60>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x112adec90>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x113198400>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x11317b650>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x1130a5880>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x104ea2c00>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x11314b970>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x104851800>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 12:19:04.595 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:19:04.697 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:19:04.698 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:19:04.699 | INFO     | uvicorn.server:serve:85 - Finished server process [58561]
+2024-05-24 12:19:22.032 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:19:22.033 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:19:48.535 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x102b5a160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x102b5a200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x11144bfe0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x11128cb90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x11144bfe0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1112df590>
+          └ <fastapi.applications.FastAPI object at 0x11128cb90>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x111a88c20>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x1112df560>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1112df590>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x111a88c20>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x111a6d520>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <coroutine object BaseHTTPMiddleware.call_next at 0x1118de8a0>
+
+TypeError: 'coroutine' object is not callable
+2024-05-24 12:20:07.274 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:20:07.376 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:20:07.377 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:20:07.378 | INFO     | uvicorn.server:serve:85 - Finished server process [58622]
+2024-05-24 12:20:16.519 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 12:20:16.520 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 12:20:53.885 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x10230a160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x10230a200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x101eb6e10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x10211b050>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x101eb6e10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1100dec60>
+          └ <fastapi.applications.FastAPI object at 0x10211b050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x110d53e20>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x1100dec30>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1100dec60>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x110d53e20>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x110d78710>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x110574b60>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x10257ed40>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x110d23d30>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x101f2d8a0>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 12:59:49.027 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 12:59:49.131 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 12:59:49.132 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 12:59:49.132 | INFO     | uvicorn.server:serve:85 - Finished server process [58689]
+2024-05-24 13:00:01.197 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:00:01.197 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 13:00:37.794 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 13:00:37.897 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 13:00:37.898 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 13:00:37.898 | INFO     | uvicorn.server:serve:85 - Finished server process [59994]
+2024-05-24 13:00:47.998 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:00:47.999 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 13:04:20.463 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 13:04:20.566 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 13:04:20.567 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 13:04:20.568 | INFO     | uvicorn.server:serve:85 - Finished server process [60033]
+2024-05-24 13:05:14.184 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:05:14.185 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 13:05:19.623 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x104546160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x104546200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x1044a58b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x1040f6db0>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x1044a58b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109cdede0>
+          └ <fastapi.applications.FastAPI object at 0x1040f6db0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10a553ce0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a5742f0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109cdede0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+                     │    │             │        │    └ <function BaseHTTPMiddleware.call_next at 0x1048bbc40>
+                     │    │             │        └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+                     │    │             └ <starlette.requests.Request object at 0x10a5475f0>
+                     │    └ <function add_process_time_header at 0x109cf14e0>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+
+TypeError: add_process_time_header() takes 1 positional argument but 2 were given
+2024-05-24 13:05:21.826 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x104546160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x104546200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x1044a58b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x1040f6db0>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x1044a58b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109cdede0>
+          └ <fastapi.applications.FastAPI object at 0x1040f6db0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10a580040>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a575220>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109cdede0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 25, in __call__
+    response = await self.dispatch_func(request, self.call_next)
+                     │    │             │        │    └ <function BaseHTTPMiddleware.call_next at 0x1048bbc40>
+                     │    │             │        └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+                     │    │             └ <starlette.requests.Request object at 0x10a574350>
+                     │    └ <function add_process_time_header at 0x109cf14e0>
+                     └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109cdedb0>
+
+TypeError: add_process_time_header() takes 1 positional argument but 2 were given
+2024-05-24 13:05:41.623 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 13:05:41.725 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 13:05:41.726 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 13:05:41.726 | INFO     | uvicorn.server:serve:85 - Finished server process [60217]
+2024-05-24 13:05:55.515 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:05:55.515 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 13:06:02.549 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x106e0e160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x106e0e200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x106d697c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x106aa8920>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x106d697c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109ba3050>
+          └ <fastapi.applications.FastAPI object at 0x106aa8920>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10a217ba0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x109ba3020>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x109ba3050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10a217ba0>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10a238470>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ None
+
+TypeError: 'NoneType' object is not callable
+2024-05-24 13:06:27.661 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 13:06:27.764 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 13:06:27.765 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 13:06:27.769 | INFO     | uvicorn.server:serve:85 - Finished server process [60297]
+2024-05-24 13:06:35.925 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:06:35.926 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 13:06:44.642 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1062e2160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1062e2200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x104fdb050>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+          └ <fastapi.applications.FastAPI object at 0x104fdb050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10df574c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x10afdeae0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10df574c0>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10df74200>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x10df159d0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x106652d40>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x10df2ba60>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x104fc18a0>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 13:08:12.499 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1062e2160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1062e2200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x104fdb050>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+          └ <fastapi.applications.FastAPI object at 0x104fdb050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10ec8fd80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x10afdeae0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10ec8fd80>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec00c80>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x10dc74aa0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x106652d40>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x10df9b3d0>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x104fc18a0>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 13:20:59.863 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1062e2160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1062e2200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x104fdb050>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+          └ <fastapi.applications.FastAPI object at 0x104fdb050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10df574c0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x10afdeae0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10df574c0>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03620>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x10df75ac0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x106652d40>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x10df9bd30>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x104fc18a0>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 13:21:00.300 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1062e2160>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1062e2200>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x104fdb050>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x10623d820>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+          └ <fastapi.applications.FastAPI object at 0x104fdb050>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10ec8c860>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.base.BaseHTTPMiddleware object at 0x10afdeae0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10afdeb10>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/base.py", line 26, in __call__
+    await response(scope, receive, send)
+          │        │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10ec8c860>
+          │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x10ec03020>>
+          │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          └ <starlette.responses.StreamingResponse object at 0x10ec02db0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/responses.py", line 222, in __call__
+    await run_until_first_complete(
+          └ <function run_until_first_complete at 0x106652d40>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/concurrency.py", line 16, in run_until_first_complete
+    (done, pending) = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+                            │       │    │                  │       └ 'FIRST_COMPLETED'
+                            │       │    │                  └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+                            │       │    └ [<coroutine object StreamingResponse.stream_response at 0x10df98f40>, <coroutine object StreamingResponse.listen_for_disconne...
+                            │       └ <function wait at 0x104fc18a0>
+                            └ <module 'asyncio' from '/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyn...
+
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 461, in wait
+    raise TypeError("Passing coroutines is forbidden, use tasks explicitly.")
+
+TypeError: Passing coroutines is forbidden, use tasks explicitly.
+2024-05-24 13:21:05.362 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 13:21:05.465 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 13:21:05.466 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 13:21:05.467 | INFO     | uvicorn.server:serve:85 - Finished server process [60326]
+2024-05-24 13:21:19.787 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 13:21:19.787 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 14:15:10.585 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 14:15:10.687 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 14:15:10.688 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 14:15:10.689 | INFO     | uvicorn.server:serve:85 - Finished server process [61001]
+2024-05-24 14:15:19.802 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 14:15:19.803 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 14:16:40.013 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1067e2020>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1067e20c0>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x104a378c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x11e6ff590>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x104a378c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x11e7de7b0>
+          └ <fastapi.applications.FastAPI object at 0x11e6ff590>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x168130360>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.exceptions.ExceptionMiddleware object at 0x11e7de870>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x11e7de7b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x168130860>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x1072d0980>
+          └ <starlette.exceptions.ExceptionMiddleware object at 0x11e7de870>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 550, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x168130860>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │     └ <function Route.handle at 0x10734c220>
+          └ <fastapi.routing.APIRoute object at 0x11e7f9280>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 227, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x168130860>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158ed4230>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <function request_response.<locals>.app at 0x15881d800>
+          └ <fastapi.routing.APIRoute object at 0x11e7f9280>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 41, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x158ed7440>
+                     └ <function get_request_handler.<locals>.app at 0x15881d620>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 196, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x10731bce0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 147, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'x_openstack_request_id': 'req-ee725029-90c2-415c-a59e-73798cfa262f', 'request': <starlette.requests.Request object at 0x158...
+                 │         └ <function get_profile at 0x11c4523e0>
+                 └ <fastapi.dependencies.models.Dependant object at 0x11e7fa4e0>
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/api/v1/login.py", line 416, in get_profile
+    return await _patch_profile(profile, x_openstack_request_id)
+                 │                       └ 'req-ee725029-90c2-415c-a59e-73798cfa262f'
+                 └ <function _patch_profile at 0x11c411260>
+
+NameError: name 'profile' is not defined. Did you forget to import 'profile'
+2024-05-24 14:19:08.503 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x1067e2020>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x1067e20c0>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x104a378c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x11e6ff590>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x104a378c0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x11e7de7b0>
+          └ <fastapi.applications.FastAPI object at 0x11e6ff590>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x1067485e0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.exceptions.ExceptionMiddleware object at 0x11e7de870>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x11e7de7b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x158e81f80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x1072d0980>
+          └ <starlette.exceptions.ExceptionMiddleware object at 0x11e7de870>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 550, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x158e81f80>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │     └ <function Route.handle at 0x10734c220>
+          └ <fastapi.routing.APIRoute object at 0x11e7f9280>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 227, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x158e81f80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x158e768a0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <function request_response.<locals>.app at 0x15881d800>
+          └ <fastapi.routing.APIRoute object at 0x11e7f9280>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 41, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x158e47aa0>
+                     └ <function get_request_handler.<locals>.app at 0x15881d620>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 196, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x10731bce0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 147, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'x_openstack_request_id': 'req-e67be6ba-cbbe-4ce6-a6ef-146a6f27f2a0', 'request': <starlette.requests.Request object at 0x158...
+                 │         └ <function get_profile at 0x11c4523e0>
+                 └ <fastapi.dependencies.models.Dependant object at 0x11e7fa4e0>
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/api/v1/login.py", line 416, in get_profile
+    return await _patch_profile(profile, x_openstack_request_id)
+                 │                       └ 'req-e67be6ba-cbbe-4ce6-a6ef-146a6f27f2a0'
+                 └ <function _patch_profile at 0x11c411260>
+
+NameError: name 'profile' is not defined. Did you forget to import 'profile'
+2024-05-24 14:19:56.594 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 14:19:56.697 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 14:19:56.698 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 14:19:56.698 | INFO     | uvicorn.server:serve:85 - Finished server process [63117]
+2024-05-24 14:20:07.486 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 14:20:07.486 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 14:25:57.427 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 14:25:57.529 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 14:25:57.530 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 14:25:57.530 | INFO     | uvicorn.server:serve:85 - Finished server process [63310]
+2024-05-24 14:26:06.993 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 14:26:06.994 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 16:09:13.760 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 16:09:13.863 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 16:09:13.863 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 16:09:13.864 | INFO     | uvicorn.server:serve:85 - Finished server process [63545]
+2024-05-24 16:09:24.125 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 16:09:24.126 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-24 16:10:11.120 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-24 16:10:11.222 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-24 16:10:11.223 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-24 16:10:11.223 | INFO     | uvicorn.server:serve:85 - Finished server process [66700]
+2024-05-24 16:10:28.355 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-24 16:10:28.356 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:27:37.036 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 10:27:42.143 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 10:27:42.146 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 10:27:42.147 | INFO     | uvicorn.server:serve:85 - Finished server process [66740]
+2024-05-27 10:27:58.152 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:27:58.153 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:35:48.347 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 10:35:48.450 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 10:35:48.451 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 10:35:48.452 | INFO     | uvicorn.server:serve:85 - Finished server process [80148]
+2024-05-27 10:35:52.280 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:35:52.280 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:38:15.324 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:38:15.325 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:43:46.391 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 10:43:46.493 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 10:43:46.494 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 10:43:46.494 | INFO     | uvicorn.server:serve:85 - Finished server process [80531]
+2024-05-27 10:43:50.510 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:43:50.511 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:44:00.110 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:44:00.111 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 10:45:03.487 | ERROR    | uvicorn.protocols.http.h11_impl:run_asgi:369 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+                   │   │    │      │    │        │    └ <function RequestResponseCycle.send at 0x102e9a2a0>
+                   │   │    │      │    │        └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>
+                   │   │    │      │    └ <function RequestResponseCycle.receive at 0x102e9a340>
+                   │   │    │      └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>
+                   │   │    └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                   │   └ <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x107219f70>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+                 │    └ <fastapi.applications.FastAPI object at 0x102ea92e0>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x107219f70>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/applications.py", line 171, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/applications.py", line 102, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1067d4470>
+          └ <fastapi.applications.FastAPI object at 0x102ea92e0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 181, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/middleware/errors.py", line 159, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x10773ec00>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <starlette.exceptions.ExceptionMiddleware object at 0x1067d43b0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x1067d4470>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 82, in __call__
+    raise exc from None
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/exceptions.py", line 71, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x10773eac0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x103230f80>
+          └ <starlette.exceptions.ExceptionMiddleware object at 0x1067d43b0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 550, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x10773eac0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │     └ <function Route.handle at 0x103204400>
+          └ <fastapi.routing.APIRoute object at 0x1067d6900>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 227, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x10773eac0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x107738ec0>>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 28000), 'c...
+          │    └ <function request_response.<locals>.app at 0x107108ae0>
+          └ <fastapi.routing.APIRoute object at 0x1067d6900>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 41, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x10773b7a0>
+                     └ <function get_request_handler.<locals>.app at 0x1071089a0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 196, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x1031d3ec0>
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/fastapi/routing.py", line 147, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'profile': Profile(keystone_token='gAAAAABmVFX6sa0IYvt6dzL--g9oWWNzRafzE6KwH7Pcm_sFyVrgZrEiiHGPNKHQLdPYfW7ArygB1r28yxGvsGK5k...
+                 │         └ <function get_profile at 0x10623ce00>
+                 └ <fastapi.dependencies.models.Dependant object at 0x1067d7bc0>
+
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/api/v1/login.py", line 414, in get_profile
+    return await _patch_profile(profile, x_openstack_request_id)
+                 │              │        └ 'req-a74548f1-5f3f-4b9b-a87e-4295b5039e27'
+                 │              └ Profile(keystone_token='gAAAAABmVFX6sa0IYvt6dzL--g9oWWNzRafzE6KwH7Pcm_sFyVrgZrEiiHGPNKHQLdPYfW7ArygB1r28yxGvsGK5kO0n3DXOh812V...
+                 └ <function _patch_profile at 0x10620d300>
+
+TypeError: _patch_profile() missing 1 required positional argument: 'session'
+2024-05-27 10:47:42.390 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 10:47:42.493 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 10:47:42.494 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 10:47:42.494 | INFO     | uvicorn.server:serve:85 - Finished server process [80877]
+2024-05-27 10:47:46.266 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 10:47:46.267 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:23:10.248 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:23:10.249 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:27:25.636 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:27:25.637 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:27:53.758 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:27:53.759 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:28:28.364 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 11:28:28.467 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 11:28:28.468 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 11:28:28.469 | INFO     | uvicorn.server:serve:85 - Finished server process [82494]
+2024-05-27 11:28:32.338 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:28:32.339 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:29:08.635 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:29:08.636 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:29:58.860 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:30:56.515 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 11:30:56.617 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 11:30:56.618 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 11:30:56.619 | INFO     | uvicorn.server:serve:85 - Finished server process [82579]
+2024-05-27 11:31:00.645 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:31:00.646 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:31:34.628 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:32:22.321 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:32:38.275 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 11:32:38.378 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 11:32:38.380 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 11:32:38.381 | INFO     | uvicorn.server:serve:85 - Finished server process [82718]
+2024-05-27 11:32:42.457 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 11:32:42.457 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 11:45:38.174 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:55:39.730 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:56:15.282 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:57:51.662 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 11:59:12.073 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 12:03:44.409 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 12:03:44.512 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 12:03:44.515 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 12:03:44.516 | INFO     | uvicorn.server:serve:85 - Finished server process [82838]
+2024-05-27 12:08:21.930 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 12:08:21.932 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 12:08:40.030 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 12:09:06.721 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 12:10:14.638 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.

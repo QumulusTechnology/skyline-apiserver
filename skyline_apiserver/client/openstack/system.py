@@ -33,13 +33,13 @@ async def get_project_scope_token(
     region: str,
     project_id: str,
 ) -> str:
-    auth_url = await utils.get_endpoint(
-        region=region,
-        service="identity",
-        session=get_system_session(),
-    )
+    # auth_url = await utils.get_endpoint(
+    #     region=region,
+    #     service="identity",
+    #     session=get_system_session(),
+    # )
     kwargs = {"project_id": project_id}
-    scope_auth = Token(auth_url=auth_url, token=keystone_token, **kwargs)
+    scope_auth = Token(auth_url="https://cloud10.cloudportal.app:5000/v3/", token=keystone_token, **kwargs)
 
     session = Session(
         auth=scope_auth, verify=CONF.default.cafile, timeout=constants.DEFAULT_TIMEOUT
@@ -49,8 +49,8 @@ async def get_project_scope_token(
     return keystone_token
 
 
-async def get_endpoints(region: str) -> Dict[str, Any]:
-    access = await utils.get_access(session=get_system_session())
+async def get_endpoints(region: str, session: Session) -> Dict[str, Any]:
+    access = await utils.get_access(session=session)
     catalogs = access.service_catalog.get_endpoints(
         region_name=region,
         interface=CONF.openstack.interface_type,
@@ -64,10 +64,9 @@ async def get_endpoints(region: str) -> Dict[str, Any]:
         # Both of them, we will not add the related endpoint into profile.
         if service is None or not endpoint:
             continue
-
         path = PurePath("/").joinpath(CONF.openstack.nginx_prefix, region.lower(), service)
         endpoints[service] = str(path)
-    nc = await utils.neutron_client(session=get_system_session(), region=region)
+    nc = await utils.neutron_client(session=session, region=region)
     neutron_extentions = await run_in_threadpool(nc.list_extensions)
     extentions_set = {i["alias"] for i in neutron_extentions["extensions"]}
     for alias, mapping_name in CONF.openstack.extension_mapping.items():
@@ -78,9 +77,9 @@ async def get_endpoints(region: str) -> Dict[str, Any]:
     return endpoints
 
 
-async def get_projects(global_request_id: str, region: str, user: str) -> List[Any]:
+async def get_projects(global_request_id: str, region: str, user: str, session: Session) -> List[Any]:
     kc = await utils.keystone_client(
-        session=get_system_session(),
+        session=session,
         region=region,
         global_request_id=global_request_id,
     )
