@@ -38,7 +38,7 @@ async def on_startup() -> None:
     )
     policies_setup()
     await db_setup()
-
+    print("starting debig machine")
     # Set all CORS enabled origins
     if CONF.default.cors_allow_origins:
         app.add_middleware(
