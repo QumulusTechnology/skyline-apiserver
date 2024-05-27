@@ -52,24 +52,10 @@ async def generate_profile_by_token(token: schemas.Payload) -> schemas.Profile:
 async def generate_profile(
     keystone_token: str,
     region: str,
-    session =None,
-    unscope_client =None,
     exp: Optional[int] = None,
     uuid_value: Optional[str] = None,
 ) -> schemas.Profile:
     try:
-        if not session:
-            # new_auth = Token(
-            #     auth_url="https://cloud10.cloudportal.app:5000/v3/",
-            #     token=keystone_token,
-            #     # reauthenticate=True,
-            #     user_domain_name="default",
-            #     project_name="admin",
-            #     project_domain_name="default",        
-            # )
-            # new_session = Session(auth=new_auth)
-            # new_client = keystoneclient(session=new_session,project_name="service",)
-            session = get_system_session()
         kc = await utils.keystone_client(session=get_system_session(), region=region)
         token_data = kc.tokens.get_token_data(token=keystone_token)
 
