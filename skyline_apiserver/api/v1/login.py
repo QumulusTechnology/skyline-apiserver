@@ -49,14 +49,13 @@ router = APIRouter()
 async def _get_default_project_id(
     session: Session, region: str, user_id: Optional[str] = None
 ) -> Union[str, None]:
-    system_session = get_system_session()
     if not user_id:
         token = session.get_token()
-        token_data = await get_token_data(token, region, system_session)
+        token_data = await get_token_data(token, region, session)
         _user_id = token_data["token"]["user"]["id"]
     else:
         _user_id = user_id
-    user = await get_user(_user_id, region, system_session)
+    user = await get_user(_user_id, region, session)
     return getattr(user, "default_project_id", None)
 
 
@@ -128,8 +127,9 @@ async def _patch_profile(profile: schemas.Profile, global_request_id: str) -> sc
                 region=profile.region, token=profile.keystone_token
             )
         else:
+            session=get_system_session()
             default_project_id = await _get_default_project_id(
-                get_system_session(), profile.region, user_id=profile.user.id
+                session, profile.region, user_id=profile.user.id
             )
 
         profile.projects = {

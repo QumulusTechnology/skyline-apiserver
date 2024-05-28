@@ -53,8 +53,8 @@ async def generate_session(profile: schemas.Profile) -> Any:
 
 def get_system_session() -> Session:
     global SESSION
-    if SESSION is not None:
-        return SESSION
+    # if SESSION is not None:
+    #     return SESSION
 
     auth = Password(
         auth_url=CONF.openstack.keystone_url,
