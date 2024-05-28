@@ -1643,3 +1643,130 @@ TypeError: _patch_profile() missing 1 required positional argument: 'session'
 2024-05-27 15:49:49.311 | INFO     | uvicorn.server:serve:85 - Finished server process [90983]
 2024-05-27 15:49:53.231 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
 2024-05-27 15:49:53.232 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:02:08.725 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:02:08.726 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:06:39.214 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:06:39.215 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:12:27.508 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:12:27.610 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 16:12:27.611 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 16:12:27.611 | INFO     | uvicorn.server:serve:85 - Finished server process [91571]
+2024-05-27 16:12:31.396 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:12:31.397 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:13:47.898 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:13:47.899 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:16:56.553 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:16:56.656 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 16:16:56.657 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 16:16:56.657 | INFO     | uvicorn.server:serve:85 - Finished server process [91845]
+2024-05-27 16:17:00.508 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:17:00.509 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:17:36.174 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:17:36.276 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 16:17:36.277 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 16:17:36.277 | INFO     | uvicorn.server:serve:85 - Finished server process [91959]
+2024-05-27 16:17:40.086 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:17:40.087 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:18:14.401 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:18:14.503 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 16:18:14.504 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 16:18:14.504 | INFO     | uvicorn.server:serve:85 - Finished server process [92017]
+2024-05-27 16:18:18.451 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:18:18.452 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:42:33.610 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:42:33.611 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:49:45.363 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:49:45.900 | INFO     | uvicorn.server:serve:85 - Finished server process [92992]
+2024-05-27 16:49:45.902 | INFO     | uvicorn.lifespan.on:main:92 - ASGI 'lifespan' protocol appears unsupported.
+2024-05-27 16:50:12.234 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:50:12.235 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:50:32.262 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-27 16:50:32.365 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-27 16:50:32.367 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-27 16:50:32.368 | INFO     | uvicorn.server:serve:85 - Finished server process [93249]
+2024-05-27 16:51:56.288 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 16:51:56.289 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 16:52:25.131 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 16:53:45.695 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 16:53:53.833 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 16:54:43.551 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 16:55:13.935 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 16:55:40.688 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:04:32.432 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:07:47.571 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:08:23.418 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:08:59.726 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:09:25.277 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:10:51.272 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 17:10:51.273 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 17:11:11.385 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:11:42.723 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:14:37.399 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:15:33.902 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-27 17:23:01.618 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-27 17:23:01.619 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-27 17:41:40.120 | ERROR    | uvicorn.lifespan.on:send:119 - Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 527, in _connect
+    self._reader, self._writer = await \
+                                 ^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 88, in _open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1122, in create_connection
+    raise exceptions[0]
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1104, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1007, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+TimeoutError: [Errno 60] Connect call failed ('162.55.15.37', 3306)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 517, in lifespan
+    await self.startup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/starlette/routing.py", line 494, in startup
+    await handler()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/main.py", line 40, in on_startup
+    await db_setup()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline_apiserver/db/base.py", line 43, in setup
+    await DATABASE.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/core.py", line 112, in connect
+    await self._backend.connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/databases/backends/mysql.py", line 69, in connect
+    self._pool = await aiomysql.create_pool(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 29, in _create_pool
+    await pool._fill_free_pool(False)
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/pool.py", line 182, in _fill_free_pool
+    conn = await connect(echo=self._echo, loop=self._loop,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 75, in _connect
+    await conn._connect()
+  File "/Users/henryqum/Documents/GitHub/skyline-apiserver/skyline-apiserver/lib/python3.12/site-packages/aiomysql/connection.py", line 563, in _connect
+    raise OperationalError(
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'cloud10.cloudportal.app'")
+
+2024-05-27 17:41:40.121 | ERROR    | uvicorn.lifespan.on:startup:56 - Application startup failed. Exiting.
+2024-05-28 09:33:59.557 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-28 09:33:59.558 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-28 09:41:28.395 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-28 09:42:23.107 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-28 09:42:23.108 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-28 09:44:21.603 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-28 09:44:21.705 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-28 09:44:21.706 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-28 09:44:21.706 | INFO     | uvicorn.server:serve:85 - Finished server process [3170]
+2024-05-28 09:44:33.371 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud10.cloudportal.app:3306/skyline
+2024-05-28 09:44:33.372 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-28 09:44:40.781 | INFO     | pbr.git:_iter_log_inner:233 - [pbr] Generating ChangeLog
+2024-05-28 09:44:51.628 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.

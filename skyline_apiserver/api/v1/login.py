@@ -98,7 +98,7 @@ async def _get_projects_and_unscope_token(
         session=session,
         endpoint="https://cloud10.cloudportal.app:5000/v3/",
         interface=CONF.openstack.interface_type,
-        # project_name="service",
+        project_name="service",
         project_domain_id="Default",
         user_domain_id="Default"
     )
@@ -207,8 +207,8 @@ async def login(
                     project_domain_name="default",
                 )
         new_session = Session(auth=new_auth)
-        new_client = KeystoneClient(session=new_session)
-        # new_client = KeystoneClient(session=new_session,project_name="service",)
+        # new_client = KeystoneClient(session=new_session)
+        new_client = KeystoneClient(session=new_session,project_name="service",)
 
         new_project_scope = new_client.auth.projects()
         new_token = new_session.get_token()
