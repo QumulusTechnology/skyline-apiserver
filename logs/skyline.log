@@ -1,0 +1,5 @@
+2024-05-30 12:44:15.279 | INFO     | databases.core:connect:90 - Connected to database mysql://skyline:********@cloud5.cloudportal.app:3306/skyline
+2024-05-30 12:44:15.280 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-30 12:52:15.253 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud5.cloudportal.app:3306/skyline
+2024-05-30 12:52:15.254 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-30 12:52:40.565 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
