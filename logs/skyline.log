@@ -3,3 +3,10 @@
 2024-05-30 12:52:15.253 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud5.cloudportal.app:3306/skyline
 2024-05-30 12:52:15.254 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
 2024-05-30 12:52:40.565 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
+2024-05-30 12:59:38.927 | INFO     | uvicorn.server:shutdown:252 - Shutting down
+2024-05-30 12:59:39.031 | INFO     | uvicorn.lifespan.on:shutdown:64 - Waiting for application shutdown.
+2024-05-30 12:59:39.033 | INFO     | uvicorn.lifespan.on:shutdown:75 - Application shutdown complete.
+2024-05-30 12:59:39.035 | INFO     | uvicorn.server:serve:85 - Finished server process [69289]
+2024-05-30 13:03:06.274 | INFO     | databases.core:connect:113 - Connected to database mysql://skyline:********@cloud5.cloudportal.app:3306/skyline
+2024-05-30 13:03:06.275 | INFO     | uvicorn.lifespan.on:startup:59 - Application startup complete.
+2024-05-30 13:03:35.944 | WARNING  | skyline_apiserver.api.v1.policy:list_policies:133 - An error occurred when calling panko enforcer.
