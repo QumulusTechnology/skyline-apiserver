@@ -41,8 +41,7 @@ def check_db_connected(fn: Fn) -> Any:
 async def check_token(token_id: str) -> bool:
     count_label = "revoked_count"
     query = (
-        select([func.count(RevokedToken.c.uuid).label(count_label)])
-        .select_from(RevokedToken)
+        select(func.count(RevokedToken.c.uuid).label(count_label))
         .where(RevokedToken.c.uuid == token_id)
     )
     db = DB.get()
